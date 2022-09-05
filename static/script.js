@@ -48,6 +48,15 @@ function addRoom(name) {
   return true;
 }
 
+function removeRoom() {
+  var room = roomListDiv.querySelector(`.room[data-name=]'${STATE.room}']`)
+
+  if (!room) return;
+
+  roomListDiv.remove(room)
+  changeRoom("lobby")
+}
+
 // Change the current room to `name`, restoring its messages.
 function changeRoom(name) {
   if (STATE.room == name) return;
@@ -164,6 +173,14 @@ function init() {
 
     addMessage(room, "Rocket", `Look, your own "${room}" room! Nice.`, true);
   })
+  
+  removeRoomForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    removeRoom()
+  })
+
+  
 
   // Subscribe to server-sent events.
   subscribe("/events");
