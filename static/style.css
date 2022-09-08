@@ -1,9 +1,9 @@
 :root {
-    --bg-dark: #242423;
-    --bg-light: #333533;
-    --fg-light: #E8EDDF;
-    --callout: rgb(255, 255, 102);
-    --callout-dark: #101010;
+    --bg-dark: #818D92;
+    --bg-light: #586A6A;
+    --fg-light: #B9A394;
+    --callout: #D4C5C7;
+    --callout-dark: #DAD4EF;
   }
   
   * {

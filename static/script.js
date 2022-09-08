@@ -2,6 +2,7 @@ let roomListDiv = document.getElementById('room-list');
 let messagesDiv = document.getElementById('messages');
 let newMessageForm = document.getElementById('new-message');
 let newRoomForm = document.getElementById('new-room');
+let removeRoomForm = document.getElementById("remove-room")
 let statusDiv = document.getElementById('status');
 
 let roomTemplate = document.getElementById('room');
@@ -49,12 +50,12 @@ function addRoom(name) {
 }
 
 function removeRoom() {
-  var room = roomListDiv.querySelector(`.room[data-name=]'${STATE.room}']`)
+  var room = roomListDiv.querySelector(`.room[data-name='${STATE.room}']`)
 
   if (!room) return;
 
-  roomListDiv.remove(room)
   changeRoom("lobby")
+  roomListDiv.removeChild(room)
 }
 
 // Change the current room to `name`, restoring its messages.
@@ -161,6 +162,12 @@ function init() {
     }
   })
 
+  removeRoomForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    removeRoom()
+  })
+
   // Set up the new room handler.
   newRoomForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -174,11 +181,7 @@ function init() {
     addMessage(room, "Rocket", `Look, your own "${room}" room! Nice.`, true);
   })
   
-  removeRoomForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    removeRoom()
-  })
+  
 
   
 
