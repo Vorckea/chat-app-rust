@@ -165,6 +165,9 @@ function init() {
   removeRoomForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const defultRooms = ["lobby", "rocket"]
+    const currentRoom = STATE.room;
+    if (defultRooms.includes(currentRoom)) return;
     removeRoom()
   })
 
